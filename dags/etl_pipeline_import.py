@@ -19,7 +19,6 @@ def slack_on_success(context):
         username='airflow'
     )
     slack_alert.execute(context=context)
-## co
 
 def slack_on_failure(context):
     dag_id = context.get('dag').dag_id
@@ -62,18 +61,13 @@ def extract_csv1():
             raise
     else:
         raise FileNotFoundError(f"{file_path} không tồn tại.")
-# https://retoolapi.dev/d2juaT/data2
+
 def extract_csv2():
-    """
-    Lấy dữ liệu từ API, chuyển đổi dữ liệu JSON thành DataFrame và lưu dưới dạng file CSV.
-    """
     api_url = "https://retoolapi.dev/ghIzE8/data2"
-    
     try:
         response = requests.get(api_url)
         response.raise_for_status()
         
-        # Nếu API trả về JSON, chuyển đổi JSON thành DataFrame
         data = response.json()
         df2 = pd.DataFrame(data)
         
